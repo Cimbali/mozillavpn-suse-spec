@@ -1,0 +1,8 @@
+-------------------------------------------------------------------
+Wed Mar 23 20:03:00 GMT 2022 - Cimbali <me@cimba.li>
+
+- Initial OpenSUSE build: v2.7.1
+
+- Include patch to fix Firefox integration
+  This allows to support passing lib path at configure time, thus
+  installing under %_libdir instead of the hardcoded /usr/lib.
