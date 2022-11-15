@@ -1,6 +1,18 @@
 -------------------------------------------------------------------
 Tue Nov 15 17:14:00 GMT 2022 - Cimbali <me@cimba.li>
 
+- Update to version 2.11.0
+  * We've made bug fixes, UI adjustments and performance
+    improvements to make Mozilla VPN even better.
+  * If you have enabled "Connect VPN on startup" on desktop, the
+    app will now launch minimized whenever you start your
+    computer.
+
+- Adjust build-fix patch hiding Android-specific version checks
+
+-------------------------------------------------------------------
+Tue Nov 15 17:14:00 GMT 2022 - Cimbali <me@cimba.li>
+
 - Update to version 2.10.1
   * New message center, where you can learn about important
     updates

@@ -1,7 +1,7 @@
 %define _srcdir .
-Version: 2.10.1
+Version: 2.11.0
 Release: 1
-Source0: mozillavpn_2.10.1.orig.tar.gz
+Source0: mozillavpn_2.11.0.orig.tar.gz
 Patch0: remove-android-build-error.patch
 
 Name:      mozillavpn
