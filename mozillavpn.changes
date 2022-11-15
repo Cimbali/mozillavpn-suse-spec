@@ -1,4 +1,898 @@
 -------------------------------------------------------------------
+Tue Nov 15 17:14:00 GMT 2022 - Cimbali <me@cimba.li>
+
+- Update to version 2.10.1
+  * New message center, where you can learn about important
+    updates
+  * Easier-to-use navigation bar
+  * New tips and tricks to help you use the app's features and
+    settings
+  * Other bug fixes and UI adjustments
+  * Improved icons in the Windows and macOS tray to help you
+    quickly assess your connection
+  * Sub management re-authentication flow enhancements by @flozia
+    in gh#3772
+  * Version Bump 2.10.0 by @strseb in gh#3774
+  * Device limit functional test - VPN-2414 by @bakulf in gh#3767
+  * Add more tests for the auth-in-app by @bakulf in gh#3781
+  * Remove selenium for in-browser functional tests by @bakulf in
+    gh#3766
+  * Inspector command to force subscription management
+    re-authentication by @flozia in gh#3782
+  * NIT README functional tests by @flozia in gh#3783
+  * Add level-3 latest-builds to a version-keyed index by @strseb
+    in gh#3761
+  * Glean events for subscription management and account deletion
+    by @flozia in gh#3764
+  * Add missing entitlements by @strseb in gh#3785
+  * Fixing xcode cloud by @strseb in gh#3784
+  * ci: Add missing 'index' prefix to Taskcluster branch routes by
+    @ahal in gh#3787
+  * Support languages for add-ons - fixes jira#VPN-2421 and
+    jira#VPN-2417 by @bakulf in gh#3792
+  * Use the Glean-Android SDK on instead of glean.js on android by
+    @strseb in gh#3375
+  * Add periodic check (3 hours / 1 minute) for controller state
+    by @birdsarah in gh#3717
+  * Fix parsing of subscription payment data by @flozia in gh#3793
+  * Experiment with fedora 36 by @bakulf in gh#3460
+  * Support unique survey alert for 2.9 UR gh#3402 / VPN-2139 -
+    WIP by @lesleyjanenorton in gh#3756
+  * Disable wheel events during the tutorials - VPN-2433 by
+    @bakulf in gh#3810
+  * Fix authentication input error message visibility on Android
+    by @lesleyjanenorton in gh#3804
+  * Signature for addon manifests by @bakulf in gh#3751
+  * Replace QVariant::type() with QVariant::typeId() by @bakulf in
+    gh#3235
+  * Contextually change "manage subscription" links depending on
+    subscription platform by @flozia in gh#3813
+  * Glean: Add Host's internet connection type to glean events by
+    @strseb in gh#3651
+  * Add periodic controllerStateOn event as backgrounded task in
+    android by @strseb in gh#3724
+  * Remove the screen-capture github action + test - we are not
+    using it by @bakulf in gh#3819
+  * Optimize the item picker same-event callback by @bakulf in
+    gh#3818
+  * Fix Missing Text in segmented button by @strseb in gh#3815
+  * Make windows ci more resilient by @strseb in gh#3768
+  * Change the order of priority for the XLIFF and TS files by
+    @bakulf in gh#3822
+  * Support back-button on android in the guide view - fixes
+    VPN-2435 by @bakulf in gh#3824
+  * Addon model cleanup by @bakulf in gh#3801
+  * Revert "Support unique survey alert for 2.9 UR gh#3402 /
+    VPN-2139 - WIP... by @bakulf in gh#3828
+  * Add fallback path when pkg-config is unable to find systemd by
+    @oskirby in gh#3826
+  * feature tour and guide view layout fixes by @MattLichtenstein
+    in gh#3825
+  * Enable subscription management feature by default by @flozia
+    in gh#3800
+  * CMake support for MacOS by @oskirby in gh#3517
+  * Fix gh#3811 - Leave tutorial modal issues when opened from top
+    bar by @lesleyjanenorton in gh#3823
+  * Add QEvent::TouchEnd to ItemPicker::eventFilterInternal by
+    @lesleyjanenorton in gh#3834
+  * Show tooltips only on hover during a tutorial by
+    @lesleyjanenorton in gh#3820
+  * Always reset profile flow before starting it - proposal by
+    @bakulf in gh#3836
+  * ci: make Github Release Taskcluster graphs more discoverable
+    by @ahal in gh#3835
+  * Deactivate the VPN when starting the first tutorial by @bakulf
+    in gh#3838
+  * Go back to the previous onboarding view from the get-help
+    menu - VPN-2258 by @bakulf in gh#3832
+  * VPNTutorial.play() receives Addon objects and not
+    AddonTutorials by @bakulf in gh#3840
+  * Parse subscription data depending on subscription type by
+    @flozia in gh#3833
+  * Use whole sliding-window when calulating Ping-Loss by @strseb
+    in gh#3412
+  * Logout on account deletion by @flozia in gh#3843
+  * Make the flickable items not scrollable during a tutorial by
+    @bakulf in gh#3845
+  * Reset onClosed() when opening "Leave tutorial?" popup by
+    @lesleyjanenorton in gh#3846
+  * Delete tasks when the account is deleted - fixed VPN-2463 by
+    @bakulf in gh#3861
+  * Better locale filtering for surveys - VPN-2464 by @bakulf in
+    gh#3860
+  * Fixing the unit-test compilation by @bakulf in gh#3864
+  * Handling external operations in one single place - VPN-2457 by
+    @bakulf in gh#3865
+  * Use interval to display the correct subscription plan period
+    by @flozia in gh#3849
+  * More tests about subscription/account links by @bakulf in
+    gh#3871
+  * Fix subscription management re-auth inspector command by
+    @flozia in gh#3870
+  * Fix subscription payment parsing for IAP by @flozia in gh#3872
+  * Using hard-reset for reinitialize functional tests is wrong by
+    @bakulf in gh#3868
+  * Add index routes to find builds from a `github-release` graph
+    by @ahal in gh#3841
+  * Support more subscription intervals for testing by @flozia in
+    gh#3877
+  * Fix version.h regeneration with qmake by @oskirby in gh#3862
+  * Fix subscription management for Apple subscriptions by @flozia
+    in gh#3874
+  * Add tests for the auth in subscription and account deletion by
+    @bakulf in gh#3876
+  * Add new Telemetry for sku investigation by @strseb in gh#3759
+  * Fixes app background color and divider color on Android by
+    @lesleyjanenorton in gh#3827
+  * Restore copy/paste functionality for inputs on iOS by
+    @lesleyjanenorton in gh#3875
+  * Let's schedule the support task immediately to avoid
+    deadlocks - fixes VPN-2481 by @bakulf in gh#3894
+  * Inform the user when the auth fails in account-deletion and
+    subscription view - VPN-2482 by @bakulf in gh#3896
+  * Support close-event on android - VPN-2467 by @bakulf in
+    gh#3889
+  * Make the user profile button not clickable too much - VPN-2485
+    by @bakulf in gh#3899
+  * Addon messages by @bakulf in gh#3817
+  * Retranslate the server countries when the language changes -
+    VPN-2484 by @bakulf in gh#3900
+  * VPN-2384 - Do not rely on QElapsedTimer for websocket handler
+    tests by @brizental in gh#3878
+  * Submit commits to Glean probe-scraper by @relud in gh#3805
+  * VPN-2501: Fix profile arrow button by @flozia in gh#3911
+  * Handle debit and prepaid cards in subscription management by
+    @flozia in gh#3908
+  * Clear subscription data before populating by @flozia in
+    gh#3914
+  * Signature verification for iOS by @bakulf in gh#3923
+  * Do not show plan data for Google subscriptions by @flozia in
+    gh#3929
+  * Fix vertical subscription alignment by @flozia in gh#3932
+  * Deprecate qmake for Linux by @oskirby in gh#3898
+  * Set Windows app icon when building with CMake. by @oskirby in
+    gh#3935
+  * No multiple tips&tricks view when clicking multiple times the
+    popup button - VPN-2506 by @bakulf in gh#3940
+  * tips and tricks telemetry by @MattLichtenstein in gh#3839
+  * Document that right now we rely on CMAKE_INSTALL_PREFIX=/usr
+    by @emilio in gh#3939
+  * Cleanup CMake install paths on Linux by @oskirby in gh#3888
+  * Open FxA directly to show the account management URL -
+    VPN-2549 by @bakulf in gh#3967
+  * VPN2524 - Update xcodebuild script to only build for x86_64
+    arch by @brizental in gh#3972
+  * Fix text field focus and navigation by @flozia in gh#3970
+  * Bump Qt version / Maybe fix iOS crash? by @strseb in gh#3980
+  * Enable MVPN_WEBEXTENSION when building for desktop by @oskirby
+    in gh#3971
+  * Condition watcher for addons by @bakulf in gh#3975
+  * Try to group tasks during startup by @bakulf in gh#3915
+  * Dismiss addon messages by @bakulf in gh#3981
+  * Support min/max client version as addon conditions by @bakulf
+    in gh#3997
+  * Removed the survey models and alerts and tests by @bakulf in
+    gh#3979
+  * basti/maybeFixIOS by @strseb in gh#3998
+  * Update the cmake command in the readme by @bakulf in gh#4008
+  * Fix crash on swipe kill by @flozia in gh#4005
+  * Properly disable qmljsdebugger in release mode by @andersk in
+    gh#3539
+  * Fix Windows Installer / Double run after update by @strseb in
+    gh#4017
+  * Quit the app asap without calling the DTOR by @bakulf in
+    gh#4016
+  * Move the leave-tutorial logic in the C++ layer by @bakulf in
+    gh#3866
+  * Remove a double project entry in CMakeLists.txt by @bakulf in
+    gh#4023
+  * Show the tips&tricks modal when the addons are fully loaded by
+    @bakulf in gh#4004
+  * Make subscription data sensitive in logs by @bakulf in gh#4027
+  * Fix the wasm client - fixes VPN-2589 by @bakulf in gh#4034
+  * Fix the test failures by @bakulf in gh#4042
+  * Consider any non-active subscription state as inactive - fixes
+    VPN-2592 by @bakulf in gh#4044
+  * Wasm network via JS callback by @bakulf in gh#4049
+  * Fix a small typo in the wasm client by @bakulf in gh#4052
+  * Use callbacks for conditions by @bakulf in gh#4037
+  * Repair mismerge of gh#3539 by @andersk in gh#4015
+  * VPN-2585 - Set up advanced tips & tricks section on tips &
+    tricks view by @brizental in gh#4046
+  * Drop support for Ubuntu/Impish which is EOL. by @oskirby in
+    gh#4053
+  * Another typo in the new wasm code by @bakulf in gh#4054
+  * An optimization related to saved addons by @bakulf in gh#3993
+  * Wasm errors by @bakulf in gh#4060
+  * New list of localized countries and cities by @bakulf in
+    gh#4062
+  * Expose languages in the wasm view by @bakulf in gh#4075
+  * Wasm functional tests by @bakulf in gh#4065
+  * Fix the loading of the addons during the first execution by
+    @bakulf in gh#4071
+  * Import the languages before generating the addons by @bakulf
+    in gh#4079
+  * Reset profile flow on account deletion by @flozia in gh#4028
+  * Fix a benchmark test failure by @bakulf in gh#4077
+  * BUGFIX: Apply various fixes to MacOS cmake configuration by
+    @brizental in gh#4030
+  * Increase VPNUserInfo clickable area by @lesleyjanenorton in
+    gh#4048
+  * Have taskcluster build ios by @strseb in gh#3855
+  * Remove cleanup-flaky-script-output reference from the github
+    action - fixes VPN-2601 by @bakulf in gh#4093
+  * Nit Fix gh#3703 / VPN-2376- Disable UI state changes when
+    hovering disabled input by @lesleyjanenorton in gh#4056
+  * Fix toggle password visibility on iOS by @flozia in gh#4029
+  * Nit Fix gh#626 - Use correct accessible name for Settings
+    close button by @lesleyjanenorton in gh#4070
+  * Fix gh#4009 - UI overlap in App Permissions by
+    @lesleyjanenorton in gh#4055
+  * Regenerate keys once a week by @bakulf in gh#4088
+  * Fixing permabusted windows by @strseb in gh#4006
+  * Fix 2609/#4078 - QML warning in ViewSubscriptionNeeded.qml by
+    @lesleyjanenorton in gh#4095
+  * Fix gh#4067 - Wrap or elide long labels in Settings menu by
+    @lesleyjanenorton in gh#4096
+  * Nit fix gh#3384 - Prevent button "clicks" if pressed mouse
+    leaves button by @lesleyjanenorton in gh#4058
+  * Bump terser from 5.12.0 to 5.14.2 in /tools/inspector by
+    @dependabot in gh#4045
+  * VPN-2261 - Implement handler for DEVICE_DELETED push message
+    by @brizental in gh#3983
+  * Use QSaveFile to save files by @bakulf in gh#4110
+  * Port wasm build to cmake by @bakulf in gh#4085
+  * Fix the condition and introduce a reduce() method by @bakulf
+    in gh#4109
+  * Filter and sortable model by @bakulf in gh#4094
+  * Fix a crash for the device registration by @bakulf in gh#4126
+  * Functional Tests: Use artifact passing instead of caching by
+    @strseb in gh#4133
+  * Fix the functional tests by @bakulf in gh#4135
+  * Add a feature flag for the key regeneration - VPN-2652 by
+    @bakulf in gh#4138
+  * Remove github actions for windows and android by @bakulf in
+    gh#4036
+  * VPN-2646 - Remove websocket feature flag and leave it on by
+    default by @brizental in gh#4129
+  * Compile wasm in release mode by @bakulf in gh#4142
+  * More countries localized by @bakulf in gh#4144
+  * Android Addon verification by @strseb in gh#4130
+  * TC: Fix "windows build does not install" by @strseb in gh#4112
+  * Extra unit-test for the addon index loading by @bakulf in
+    gh#4083
+  * Remove GH-Actions for Mac/iOS by @strseb in gh#4145
+  * Let's compile wasm in Release mode by @bakulf in gh#4148
+  * Fix running of websocket tests with ctest by @brizental in
+    gh#4139
+  * Do not reset the journal public/private keys when something
+    goes wrong by @bakulf in gh#4132
+  * Remove qmake support for windows by @bakulf in gh#4141
+  * ci: put Mac and Linux signing tasks on the same line as their
+    builds ... by @ahal in gh#4161
+  * ci: update hash and size for newer version of 'rustup-init' by
+    @ahal in gh#4163
+  * Add signing tasks for Taskcluster windows builds by @ahal in
+    gh#4104
+  * Add MacOS beetmover tasks on the mozilla-vpn-client
+    github-release taskgraph by @gabrielBusta in gh#4140
+  * Fix Taskcluster release indexes by @ahal in gh#4169
+  * Fix disabled toggle behavior (VPN-2376/#3703 pt. 2) by
+    @lesleyjanenorton in gh#4168
+  * Refactor beetmover tasks and add Windows candidates by
+    @gabrielBusta in gh#4170
+  * VPN-2384 - Fix intermittent MacOS failure on websocket tests
+    by @brizental in gh#4153
+  * VPN-2687 - Attempt to get WebsocketHandler tests to pass on
+    Windows by @brizental in gh#4194
+  * Fix connection info screen in landscape mode - gh#4063 by
+    @lesleyjanenorton in gh#4167
+  * Start/End condition watchers for addons by @bakulf in gh#4155
+  * Composer by @bakulf in gh#4115
+  * Implement the is-read/mask-as-read logic in the dev-menu for
+    addon messages by @bakulf in gh#4196
+  * Consolidate dev menu feature lists and use toggles to indicate
+    status by @lesleyjanenorton in gh#4178
+  * Remove a non-used feature for tips&tricks by @bakulf in
+    gh#4200
+  * Close the connection-info before starting the tutorial -
+    VPN-2626 by @bakulf in gh#4198
+  * Remove The wasm bin from the gh-pages branch by @strseb in
+    gh#4158
+  * VPN-2593 - Provide staging only flag to disable addon
+    signature verification by @brizental in gh#4151
+  * License updated by @bakulf in gh#4204
+  * Disable key-rotation in prod by @bakulf in gh#4208
+  * Disable key-rotation because unstable by @bakulf in gh#4210
+  * basti/filteredWasmChrome by @strseb in gh#4203
+  * Bring back logviewer by @strseb in gh#4212
+  * Custom addon server URLs by @bakulf in gh#4215
+  * Simplify the feature on/off flags - VPN-2690 by @bakulf in
+    gh#4202
+  * BUGFIX: Do not attempt to close websocket, if not connected by
+    @brizental in gh#4232
+  * Navigation refactoring by @bakulf in gh#4209
+  * BUGFIX: Stop ping timer once websocket is closed by @brizental
+    in gh#4242
+  * 4244/2728 - Fix update modal close by @lesleyjanenorton in
+    gh#4256
+  * Fix 4251/2735 - Fix flickering links by @lesleyjanenorton in
+    gh#4257
+  * Do not load the same screen again by @bakulf in gh#4265
+  * Close the tutorial on quit without showing the modal by
+    @bakulf in gh#4264
+  * Add the navigation loader component and the loading policy by
+    @bakulf in gh#4263
+  * VPN-2729, VPN-2740 - Mitigate infinite loop errors on closing
+    ws connection by @brizental in gh#4266
+  * fix: use new worker-type names for MacOS dep signing pools by
+    @ahal in gh#4269
+  * Interrupt tutorials on Get help clicks by @lesleyjanenorton in
+    gh#4258
+  * Fix manage account flows by @lesleyjanenorton in gh#4267
+  * VPN-2704 - Submit a ping before shuttind app down by
+    @brizental in gh#4225
+  * Implementation of the screen reload by @bakulf in gh#4271
+  * VPN-2584 - Add filtering tabs to Tips & Tricks view by
+    @brizental in gh#4221
+  * Fix the functional test by @bakulf in gh#4278
+  * Add a flag to use the prod signature key in staging by @bakulf
+    in gh#4283
+  * Import the public key for the addon signature by @bakulf in
+    gh#4259
+  * VPN-2563 - Instrument websocket handler and device removal
+    push message by @brizental in gh#4275
+  * TipsAndTricks as a screen by @bakulf in gh#4287
+  * Remove references to mainStackView in the VPNMenu by @bakulf
+    in gh#4285
+  * Force the navigator reload via RAA classes by @bakulf in
+    gh#4280
+  * Remove VPNAlerts by @bakulf in gh#4290
+  * Force reload of the home with the back-button is clicked in
+    settings/in-app-messaging sceens by @bakulf in gh#4292
+  * Fix tips and tricks layout with no addons by @MattLichtenstein
+    in gh#4298
+  * Fix QML warnings in ViewSettingsMenu.qml gh#4118 by
+    @lesleyjanenorton in gh#4119
+  * Fix the macos Unit test - addon signature by @bakulf in
+    gh#4296
+  * Fallback to port 53 before failing by @strseb in gh#4220
+  * Do a canary ping while connecting, pass info to the
+    unavailable notification by @strseb in gh#4294
+  * 2621/4090 - Fix menu UI breakages with lengthier menu titles
+    by @lesleyjanenorton in gh#4117
+  * Fix cache calc by @strseb in gh#4302
+  * Nav UI by @lesleyjanenorton in gh#4270
+  * Systray connection health indicators for desktop by @flozia in
+    gh#4195
+  * Merge get-help/help systray actions - VPN-2734 by @bakulf in
+    gh#4304
+  * Disable timers for add-device requests by @bakulf in gh#4305
+  * Taskcluster: Stage Addon-Index by @strseb in gh#4074
+  * Fix an exponentialbackoffstrategy leak miscount error by
+    @bakulf in gh#4307
+  * Force reload when the mozilla-VPN state changes - VPN-2774 by
+    @bakulf in gh#4306
+  * Add-on documentation by @bakulf in gh#4308
+  * Untranslatable addons via manifest key by @bakulf in gh#4312
+  * Add JS conditions for addons by @bakulf in gh#4303
+  * No TS files for non-translatable add-ons by @bakulf in gh#4316
+  * Update the conditions JSONSchema for Javascript entries by
+    @bakulf in gh#4317
+  * More documentation about add-ons and their API by @bakulf in
+    gh#4314
+  * In-app messages inbox by @MattLichtenstein in gh#4309
+  * Expose navigator and openURL by @bakulf in gh#4315
+  * Hide navigation bar during speed test by @lesleyjanenorton in
+    gh#4320
+  * Move device list to settings by @MattLichtenstein in gh#4311
+  * Set the prod URL for add-ons - VPN-2535 by @bakulf in gh#4321
+  * Init and reset menu indicator color by @flozia in gh#4324
+  * Server latency indicator component by @flozia in gh#4231
+  * fix: Mobile header icon by @flozia in gh#4326
+  * VPN-2772 by @bakulf in gh#4323
+  * Update recommended screen by @bakulf in gh#4325
+  * Separate AddonApi per addon by @bakulf in gh#4329
+  * Better staging messages with timeout by @bakulf in gh#4333
+  * Fix: Status icon indicator loop by @flozia in gh#4331
+  * Ignore broadcast IP addresses as custom DNS servers - VPN-2717
+    by @bakulf in gh#4337
+  * Android: Hotfix qml navigation by @strseb in gh#4334
+  * Populate glean app info by @strseb in gh#4013
+  * Remove shader based globe by @strseb in gh#4330
+  * nits by @strseb in gh#4339
+  * Remove the VPN feature tour by @lesleyjanenorton in gh#4322
+  * Add AddonConditionalWatcherFeaturesEnabled by @bakulf in
+    gh#4340
+  * Remove a non-supported addon by @bakulf in gh#4338
+  * fix: Always set the status icon dimensions to the status bar
+    height by @flozia in gh#4335
+  * Revert Broadcast IP address - VPN-2717 by @bakulf in gh#4344
+  * Fix the tips&tricks functional test by @bakulf in gh#4343
+  * Do not cancel taskAddon tasks by @bakulf in gh#4346
+  * MacOs/Installer: Check if the daemon exists before unloading
+    by @strseb in gh#4347
+  * VPN-2787 - Update design on Tips & Tricks view by @brizental
+    in gh#4319
+  * Unload add-on resources during the unload() by @bakulf in
+    gh#4348
+  * In app message template by @MattLichtenstein in gh#4328
+  * Experiment: Support split tunneling with cgroups v2 by
+    @oskirby in gh#3303
+  * Fix inbox menu title by @MattLichtenstein in gh#4352
+  * Move out of scope messages to addons/examples by
+    @lesleyjanenorton in gh#4355
+  * Add What's New message by @lesleyjanenorton in gh#4351
+  * VPN 3047 - Remove call to log on addon destruction by
+    @brizental in gh#4686
+
+- Changes from version v2.9.0
+  * This latest version includes tutorials and UI fixes to make
+    using VPN easier, as well as bug fixes and technical
+    improvements.
+  * Reactivate Qt6 android builds by @mbirghan in gh#3052
+  * Add missing error string by @lesleyjanenorton in gh#3067
+  * Fix gh#3026 - Submit auth forms on 'Enter' clicks only when
+    submit buttons are enabled by @lesleyjanenorton in gh#3066
+  * Disable 2FA "Verify" button when code input is empty by
+    @lesleyjanenorton in gh#3065
+  * Build Ubuntu packages with Qt6 linux support by @oskirby in
+    gh#3063
+  * Fix animations not playing when navigating back from Get help
+    by @flozia in gh#3057
+  * RELENG-851 - Pull taskgraph from pypi by @hneiva in gh#3059
+  * Fix gh#3060 by @lesleyjanenorton in gh#3064
+  * Disable VPNToggle when Connection Info Screen is open by
+    @flozia in gh#3075
+  * Fix connection info restart button on error view by @flozia in
+    gh#3080
+  * Fix connection info mobile layout by @flozia in gh#3078
+  * RELENG-820: Create android push apk tasks by @gabrielBusta in
+    gh#2939
+  * Fix a crash in CI - nullify the request when completed -
+    VPN-1930 by @bakulf in gh#3087
+  * Improve the qmake project generation by @bakulf in gh#3082
+  * Fix uploads to Socorro (Crashreports) by @mkestler-rtp in
+    gh#3094
+  * Add a new string to fix the connection label - VPN-1858 by
+    @bakulf in gh#3089
+  * Add ViewAuthenticationUnblockCodeNeeded.qml UI by
+    @lesleyjanenorton in gh#3098
+  * Fix the IOS compilation in CI - VPN-1955 by @bakulf in gh#3099
+  * Use glean_parser latest version - fixes VPN-1886 by @bakulf in
+    gh#3041
+  * Extra glean events for the subscription IAP flow by @bakulf in
+    gh#3047
+  * Schedule contact-tasks during the authentication - VPN-1947 by
+    @bakulf in gh#3109
+  * Fix the ci_scripts PATHs for the iOS CI by @bakulf in gh#3108
+  * No too aggressive timeouts in lottie animations by @bakulf in
+    gh#3093
+  * Fix What's new panel translations by @flozia in gh#3104
+  * Telemetry events for connection stability by @bakulf in
+    gh#3048
+  * Add a missing dependency to fix the compilation on macos by
+    @bakulf in gh#3112
+  * Fix settings label when Connection info screen is open by
+    @flozia in gh#3113
+  * grcov for linux by @bakulf in gh#3019
+  * Remove a non-existing CONFIG flag by @bakulf in gh#3116
+  * Move a script for linux in the taskcluster folder by @bakulf
+    in gh#3053
+  * Fix for AIA inputs on Android by @flozia in gh#3054
+  * Move macosx_build.sh script into the taskcluster folder by
+    @bakulf in gh#3120
+  * Update the server country/city names - fixes VPN-1658 by
+    @bakulf in gh#3121
+  * Invoke glean_parser as a module. by @oskirby in gh#3135
+  * Fix ConnectionInfo binding loop by @flozia in gh#3133
+  * Run Connection info animation only once by @flozia in gh#3136
+  * Android: Do not block UI thread for ipc by @strseb in gh#3100
+  * Update `Prototype Pollution in minimist` dependency - VPN-1964
+    by @bakulf in gh#3118
+  * Disable selection of server location and devices when CI is
+    open by @flozia in gh#3143
+  * Fix What's new translations on initial slide by @flozia in
+    gh#3142
+  * Tunnel log entries were not decoded correctly by @mkestler-rtp
+    in gh#3137
+  * Add MacosAuthenticationListener to support deep linking by
+    @oskirby in gh#2852
+  * Sign Mozillavpnnp correctly on macos by @bakulf in gh#3145
+  * Fix VPNIconButton tooltips by @flozia in gh#3144
+  * Fix mobile onboarding white space on iOS by @flozia in gh#3072
+  * Fix The Whitebox issues on android 11+ by @strseb in gh#3155
+  * Re-enable native multihop support via LocalSocketController by
+    @oskirby in gh#3134
+  * Update Android Qt version 6.2.1-\> 6.2.3 by @strseb in gh#3159
+  * Linux: Update Qt6 PPA URL for Github CI builds by @oskirby in
+    gh#3160
+  * A new tool to create country/city localization - fixes
+    VPN-1967 by @bakulf in gh#3132
+  * Create the dump folder by @mkestler-rtp in gh#3139
+  * Fix typo in README.md by @jwigert in gh#3169
+  * Fix a crash in the CI - VPN-1989 by @bakulf in gh#3170
+  * Add libqt6sql6-sqlite as a dependency by @oskirby in gh#3172
+  * Allow the lib path to be set during build config by @Cimbali
+    in gh#3140
+  * Remove Broken Apk's in release tasks by @strseb in gh#3161
+  * Ignore .cargo\* folders - fixes VPN-1976 by @bakulf in gh#3166
+  * Generate grcov logs for functional tests by @bakulf in gh#3146
+  * Avoid a 0-division in CI by @bakulf in gh#3182
+  * Localize countries/cities using "en" as fallback by @bakulf in
+    gh#3164
+  * Fix mobile onboarding background on android 12 by @strseb in
+    gh#3184
+  * Heartbeat task couses high CPU usage and high memory
+    consumption by @bakulf in gh#3189
+  * Update i18n repo in ci runs by @strseb in gh#3185
+  * Fix the connection-speed value by @bakulf in gh#3188
+  * Fix Not Loadable Lottie Animations on Android 12 by @strseb in
+    gh#3183
+  * Fix handling of controller state changes while benchmarking
+    connection by @flozia in gh#3163
+  * Remove feature-tour warnings - fixes VPN-1997 by @bakulf in
+    gh#3193
+  * Fix captive portal functional tests. by @oskirby in gh#3187
+  * Fix way to enable debug features for Glean by @brizental in
+    gh#3090
+  * Fix Log sharing on android by @strseb in gh#3196
+  * Fix a bunch of assorted QML warnings. by @oskirby in gh#3173
+  * Fix red cursor in VPNTextField on Android by @lesleyjanenorton
+    in gh#2992
+  * Reduce the number of writing operations - fixes VPN-VPN-1996
+    by @bakulf in gh#3191
+  * Fix a crash in adjust task submission - VPN-2001 by @bakulf in
+    gh#3205
+  * Fix high-DPI scaling on Android by @flozia in gh#3194
+  * Verification code is a 8-digit string - fixes VPN-2000 by
+    @bakulf in gh#3208
+  * Fix gh#3103 - Fix clickable areas of links in IAPP legal
+    disclaimer by @lesleyjanenorton in gh#3204
+  * Fix a crash in the sending unblock codes by @bakulf in gh#3210
+  * Correct error propagation in the Auth in-app listener -
+    VPN-2007 by @bakulf in gh#3214
+  * Rescan for dumps by @mkestler-rtp in gh#3202
+  * Suspect the timers for lottie animations when they are
+    completed - VPN-2004 by @bakulf in gh#3207
+  * update the i18n git module before importing languages by
+    @bakulf in gh#3219
+  * Replace hard-coded "Secure password" string with string id by
+    @lesleyjanenorton in gh#3223
+  * added initial pr template by @mozrokafor in gh#3105
+  * Xcode cloud fix by @mbirghan in gh#3225
+  * Let's use QT 6.2.4 almost everywhere by @bakulf in gh#3217
+  * Unblock code and email code are not digit only. by @bakulf in
+    gh#3226
+  * Fix the system notification icons on Linux by @oskirby in
+    gh#3224
+  * Revise password hint behavior in create password view by
+    @lesleyjanenorton in gh#3038
+  * Fix LogViewer by @strseb in gh#3233
+  * Data-review bugID updated by @bakulf in gh#2990
+  * Fix contact and developer menu when visited from iOS
+    onboarding by @flozia in gh#3234
+  * Version bump 2.9.0 by @bakulf in gh#3244
+  * Remove a non-catchable Fxa error and increase the
+    test-coverage for auth-in-app by @bakulf in gh#3242
+  * Fix red cursor in VPNTextArea on Android by @lesleyjanenorton
+    in gh#3221
+  * Fix 1615 - Checkboxes and radio buttons can be controlled by
+    tapping their labels by @MattLichtenstein in gh#3174
+  * Only install on Win10 or higher, 64bit, x86 by @mkestler-rtp
+    in gh#3236
+  * Functional testing: Qt6 and cleanup by @oskirby in gh#3218
+  * Use qt6 for all the github actions by @bakulf in gh#3254
+  * Additional logging for crash reporter by @mkestler-rtp in
+    gh#3237
+  * Rewrite the ip-address lookup - fixes VPN-1986 by @bakulf in
+    gh#3257
+  * Fix password creation tooltip by @lesleyjanenorton in gh#3239
+  * Remove QtCharts dependency by @bakulf in gh#3259
+  * Remove the 'fake' disconecting timeout - closes VPN-1985 by
+    @bakulf in gh#3263
+  * Add generic authentication error message by @lesleyjanenorton
+    in gh#3248
+  * Full Windows Taskcluster CI by @strseb in gh#2893
+  * Proposal: Handle Timeouts in InAppAuth Sign-In Step by @strseb
+    in gh#3256
+  * Update connectionbenchmark.cpp by @mkestler-rtp in gh#3266
+  * Update Android-Qt to 6.2.4 by @strseb in gh#3275
+  * TC-Windows: Add debug symbols to artifact bundle by @strseb in
+    gh#3274
+  * modified layout to support long country names by @lloan in
+    gh#3272
+  * Fix an unblock-code-required issue - fix VPN-2037 by @bakulf
+    in gh#3279
+  * Windows: Ignore hidden interfaces for exclusion routes. by
+    @oskirby in gh#3282
+  * Cleanup qt5 hacks by @strseb in gh#3284
+  * Enable macos tasckluster by @mbirghan in gh#2873
+  * Fix Wix schema error due to out-of-order Conditions. by
+    @oskirby in gh#3290
+  * Fix PPA automation workflow after Qt6 changes by @oskirby in
+    gh#3289
+  * Fix the contact-us stackview handling - fixes VPN-2047 by
+    @bakulf in gh#3296
+  * Use the auth-in-app component for account deletion by @bakulf
+    in gh#3276
+  * Use qt6 for macos builds in taskcluster by @bakulf in gh#3307
+  * Add postrm script to kill the mozillavpn instances when the
+    linux package is uninstalled - fixes VPN-2048 by @bakulf in
+    gh#3304
+  * Try to fix python module installation in taskcluster by
+    @bakulf in gh#3312
+  * Rename macosx to macos and fix indentations by @bakulf in
+    gh#3313
+  * Remove not-used functions in apple-compile script by @bakulf
+    in gh#3318
+  * Fix 1615 - Fix issues with radio buttons by @MattLichtenstein
+    in gh#3260
+  * Introduce the guide engine by @bakulf in gh#3252
+  * Fix location button background color changes when connecting
+    by @lesleyjanenorton in gh#3333
+  * Cleanup macos/ios builds in CI by @bakulf in gh#3334
+  * Parallelize the connection download benchmark by @oskirby in
+    gh#3249
+  * Rust bridge: Add Cargo.lock file by @andersk in gh#3341
+  * Android: Split the gradle monolith by @strseb in gh#3288
+  * Remove Dead Qt5/android Code by @strseb in gh#3336
+  * Move windows_compile.bat into a scripts/windows folder by
+    @bakulf in gh#3349
+  * Add the guides by @bakulf in gh#3339
+  * Fix-2783: Consistent cancel button by @MattLichtenstein in
+    gh#3311
+  * Add free trial strings by @lesleyjanenorton in gh#3271
+  * Remove unused environment variables from .taskcluster.yml by
+    @ahal in gh#3332
+  * Feature dependencies by @bakulf in gh#3364
+  * Enable the delete-account features only on iOS - VPN-2110 by
+    @bakulf in gh#3362
+  * VPN-2035: Add 7-day trial label to mobile onboarding by
+    @MattLichtenstein in gh#3355
+  * update string for tooltip - vpn apps permission view - toggle
+    by @lloan in gh#3344
+  * VPN-1832: Improve visual cues from switching between single
+    and multi-hop (and back) by @MattLichtenstein in gh#3309
+  * Add free trial as feature by @flozia in gh#3370
+  * RELENG-790: Linux build debian package signing by
+    @gabrielBusta in gh#3354
+  * VPN-1839: Dinamically change status bar text color on mobile
+    by @brizental in gh#3359
+  * Add and update account deletion views by @flozia in gh#3365
+  * Pass iap free trial duration to qml by @strseb in gh#3351
+  * Ensure `taskgraph` can be generated locally by @ahal in
+    gh#3371
+  * Fix handling of aborted download benchmark by @flozia in
+    gh#3369
+  * Fix collapsible card not expanding by @MattLichtenstein in
+    gh#3376
+  * Add free trial chip to subscription options by
+    @MattLichtenstein in gh#3391
+  * Update settings menu per in-app subscription management
+    updates by @lesleyjanenorton in gh#3381
+  * Fix binding loops in mobile onboarding by @lesleyjanenorton in
+    gh#3392
+  * Pass the original login email in case of redirects in the
+    in-app auth flow - VPN-2124 by @bakulf in gh#3387
+  * Taskcluster: Build qt6 deps on a mac runner by @strseb in
+    gh#2914
+  * Enforce empty line at the end of strings.yaml by @flodolo in
+    gh#3382
+  * Disable features with dependencies by @bakulf in gh#3395
+  * Add the missing extra keys - VPN-2123 by @bakulf in gh#3403
+  * Fix disclaimer alignment in auth template by @flozia in
+    gh#3405
+  * Fix layout breakage in DNS settings by @flozia in gh#3406
+  * Fix isDeleteAccountAuth is undefined by @flozia in gh#3401
+  * Guess graphic API for windows by @bakulf in gh#3398
+  * Use hashIndex for Openssl by @strseb in gh#3422
+  * Hide user info in Contact Support form if user is
+    unauthenticated by @lesleyjanenorton in gh#3420
+  * Fix in-browser auth cancel button by @lesleyjanenorton in
+    gh#3419
+  * Fix recursive rearranges in connection speed test screen by
+    @lesleyjanenorton in gh#3417
+  * Check the model initialization before going to StateMain by
+    @bakulf in gh#3427
+  * Try enforcing concurrency limits to abort stale CI runs by
+    @oskirby in gh#3434
+  * Expose the app-state via glean events by @bakulf in gh#3428
+  * Remove a localizable string for the GPUCheck view by @bakulf
+    in gh#3435
+  * Windows: Replace connectivity hint with GetIpInterfaceTable()
+    by @oskirby in gh#3418
+  * Expose graphicsApi and use it in the glean initialization by
+    @bakulf in gh#3441
+  * Proposal: Sort Plans by trial days by @strseb in gh#3450
+  * Fix the tutorial engine by @bakulf in gh#3438
+  * Allow landscape mode on ipad - closes VPN-1575 by @bakulf in
+    gh#3463
+  * Update to taskgraph 1.5.0 and bump decision image by
+    @gabrielBusta in gh#3430
+  * Fix German Free Trial layout by @strseb in gh#3451
+  * ci(taskcluster): make sure Android build failures turn the
+    task red (... by @ahal in gh#3461
+  * Do not write the conf file on windows by @strseb in gh#3415
+  * Fix IAP-Discount not shown by @strseb in gh#3478
+  * ci(taskcluster): bump decision image by @gabrielBusta in
+    gh#3469
+  * Account Deletion feature should not have features dependencies
+    by @bakulf in gh#3476
+  * Get android builds a bigger taskcluster vm by @strseb in
+    gh#3474
+  * Documentation for the guide JSON files - VPN-1743 by @bakulf
+    in gh#3459
+  * Android: Fix Enless Loading of a free trial plan by @strseb in
+    gh#3487
+  * IOS-IAP: Fetch the Free-Trial Info from the right field by
+    @strseb in gh#3484
+  * Reduce the number of log entries in android by @bakulf in
+    gh#2952
+  * Check the model initialization after the IAP check - fixes
+    VPN-2184 by @bakulf in gh#3475
+  * Also check for x64 arch on non-prod .msi by @strseb in gh#3473
+  * ci(signing): switch Android builds back to an AWS pool by
+    @ahal in gh#3495
+  * Mark some of the glean events as `interaction` by @bakulf in
+    gh#3471
+  * Android: Fix Random Service starts in the client by @strseb in
+    gh#3492
+  * No log entries to stderr when in production - VPN-2207 by
+    @bakulf in gh#3504
+  * Remove webview auth code for iOS and Android by @bakulf in
+    gh#3502
+  * Experiment: Building with CMake by @oskirby in gh#3350
+  * Add highlighted tutorial attribute by @bakulf in gh#3497
+  * Reduce clickable area for checkboxrow labels by
+    @MattLichtenstein in gh#3508
+  * Expose VPN state via 'status' cli - VPN-2197 by @bakulf in
+    gh#3519
+  * Reduce the level of information shared through logs by @bakulf
+    in gh#3510
+  * Refactor handling of views with multiple entry points by
+    @lesleyjanenorton in gh#3407
+  * Tips and tricks page by @MattLichtenstein in gh#3431
+  * Enable/disable features via inspector by @bakulf in gh#3530
+  * Tips and tricks page layout fix by @MattLichtenstein in
+    gh#3524
+  * Removed NETWORKEXTENSION param by @bakulf in gh#3533
+  * Disable features by @bakulf in gh#3536
+  * Do not expose free-trial products if free-trial feature is not
+    supported by @bakulf in gh#3541
+  * ci: Mac build and signing tasks by @hneiva in gh#3534
+  * Taskcluster: Fix wasm build by @strseb in gh#3546
+  * Change location to support multi-hop in tutorials by @bakulf
+    in gh#3458
+  * Expose objectName in the tutorial signals by @bakulf in
+    gh#3552
+  * Fix auth tests and improve unit testing by @oskirby in gh#3557
+  * ci: fix Linux + Android Taskcluster build artifacts by @ahal
+    in gh#3560
+  * Fix a dumb typo causing the nightly PPA to fail. by @oskirby
+    in gh#3555
+  * Fix the cmake-generated windows installer by @oskirby in
+    gh#3567
+  * Mention ./scripts/utils/import_languages.py in error message.
+    by @emilio in gh#3585
+  * Use Authentication in-app for the functional tests by @bakulf
+    in gh#3553
+  * VPN-2260 - Create resilient connection with Guardian Websocket
+    by @brizental in gh#3505
+  * Run apt-get update in PPA automation workflow by @oskirby in
+    gh#3601
+  * Fix auto-generated BUILD_ID to include major version. by
+    @oskirby in gh#3599
+  * Guide view for tips and tricks by @MattLichtenstein in gh#3565
+  * VPN-2276 - Put push feature behind feature flag by @brizental
+    in gh#3604
+  * Remove the 'aia' params in the client user-agent - PSP-393 by
+    @bakulf in gh#3485
+  * Cherry-pick: Check Direct3D shader version to select software
+    rendering by @oskirby in gh#3605
+  * Add installation of mozillavpn binary. by @oskirby in gh#3612
+  * Add controller state event by @birdsarah in gh#3470
+  * linux: Fix icon on GNOME Wayland. by @emilio in gh#3589
+  * Reset the app in case of an auth failure - VPN-2149 by @bakulf
+    in gh#3619
+  * Refactoring the feature initilization by @bakulf in gh#3608
+  * Make surveys per locale by @bakulf in gh#3623
+  * Fix install command by @emilio in gh#3581
+  * Bugs in CMake string translations by @oskirby in gh#3631
+  * Start update with a detached process - VPN-116 by @bakulf in
+    gh#3626
+  * ci(taskcluster): temporarily disable caches for mac builds and
+    toolch... by @ahal in gh#3630
+  * First experiments with addons by @bakulf in gh#3586
+  * Fix wrong name for controller step event by @birdsarah in
+    gh#3636
+  * ci: Fix decision task retrigger by @hneiva in gh#3646
+  * Expose a way to localize currency values from iso4217 -
+    VPN-2307 by @bakulf in gh#3648
+  * Add extra checks for the VPN-2307 currency issue by @bakulf in
+    gh#3649
+  * Query parameter replacement for the surveys - VPN-2294 by
+    @bakulf in gh#3634
+  * Support for the touch events by @bakulf in gh#3654
+  * Update back button in guide views - Fix gh#3643 by
+    @lesleyjanenorton in gh#3659
+  * Quick followup to gh#3407 by @lesleyjanenorton in gh#3526
+  * Add Release notes 2.7.1 -\> 2.8.3 by @strseb in gh#3592
+  * Fix device-limit - VPN-2319 by @bakulf in gh#3666
+  * Center connection info details vertically by @flozia in
+    gh#3668
+  * Refactor VPNPopup by @MattLichtenstein in gh#3653
+  * Reduce the logging during the authentication flow - VPN-2323
+    by @bakulf in gh#3673
+  * Add a script to generate a translation file by @bakulf in
+    gh#3664
+  * Remove unused LinkFeedback by @birdsarah in gh#3702
+  * Stop using 8.8.8.8 in the connection check by @strseb in
+    gh#3708
+  * Tips and tricks intro modal by @MattLichtenstein in gh#3679
+  * VPN-2006 Add an alert for resent confirm codes by @strseb in
+    gh#3545
+  * Use toolchain tasks for building openssl and qt by @ahal in
+    gh#3620
+  * Let's point to google play store or apple store when updating
+    the client by @bakulf in gh#3714
+  * VPN-2259 - Implement exponentially increasing interval between
+    WebSocket server connection retries by @brizental in gh#3675
+  * Glean events for the update flow by @bakulf in gh#3509
+  * Clear QT_STYLE_OVERRIDE if the style was not found. by
+    @oskirby in gh#3558
+  * Update Get help menus by @lesleyjanenorton in gh#3707
+  * Remove the ios-kill-switch `Feature` and include all networks
+    by default by @bakulf in gh#3728
+  * Generate tutorial addons by @bakulf in gh#3638
+  * Include addons in the gh-pages branch by @bakulf in gh#3733
+  * Fix string export for main branch by @flodolo in gh#3737
+  * Feature tour card implementation + refactor by
+    @MattLichtenstein in gh#3625
+  * Add guidance on data bugs by @birdsarah in gh#3726
+  * fix translations typo for guide block headers by
+    @MattLichtenstein in gh#3747
+  * fix: misnamed path in Windows qt toolchain script by @ahal in
+    gh#3744
+  * Schedule addon index refresh by @bakulf in gh#3736
+  * Move the condition block in the addon world by @bakulf in
+    gh#3738
+  * Addons for wasm by @bakulf in gh#3742
+  * No filtering for addons. Moving tic-tac-toe and language in a
+    \`exampl... by @bakulf in gh#3740
+  * Tutorials by @lesleyjanenorton in gh#3652
+  * Content change for guide by @MattLichtenstein in gh#3748
+  * Mock guardian & FxA - functional tests by @bakulf in gh#3746
+  * Improve "device limit" removal visual cues by
+    @MattLichtenstein in gh#3735
+  * Nit: Update scrollbar visibility by @lesleyjanenorton in
+    gh#3661
+  * Fix Android Crash: Type abort gh#622 by @strseb in gh#3706
+  * Subscription management view by @flozia in gh#3606
+  * Fix an error in the translation string script by @bakulf in
+    gh#3765
+  * Fallback for the download task DNS lookup by @flozia in
+    gh#3671
+  * Addons for 2.9.0 by @bakulf in gh#3755
+  * Remove RPM github action by @bakulf in gh#3809
+  * \[2.9.0\] Properly disable qmljsdebugger in release mode by
+    @andersk in gh#3803
+  * Remove extra files in the final addon folder by @bakulf in
+    gh#3890
+  * Fix the windows installer path for 2.9 by @bakulf in gh#3943
+  * Consume signed stuff from the 'signed-internals' folder by
+    @strseb in gh#3969
+  * HackFix for 2.9 tutorial UI issues (#4002) by
+    @lesleyjanenorton in gh#4018
+
+- Change from version v2.8.0
+  * Migration to Qt6.
+  * Bug fixes.
+
+- Patch adding support for libpath support was merged gh#3140
+- Add patch to fix build by hiding Android-specific version checks
+
+-------------------------------------------------------------------
 Wed Mar 23 20:03:00 GMT 2022 - Cimbali <me@cimba.li>
 
 - Initial OpenSUSE build: v2.7.1

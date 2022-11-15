@@ -1,0 +1,16 @@
+--- mozillavpn-2.10.1~rc89/src/connectionbenchmark/benchmarktaskdownload.cpp	2022-10-31 16:00:04.486905207 +0000
++++ mozillavpn-2.10.1~rc89/src/connectionbenchmark/benchmarktaskdownload.cpp	2022-10-31 16:00:06.858877007 +0000
+@@ -47,11 +47,11 @@
+     m_dnsLookup.setNameserver(QHostAddress(MULLVAD_DEFAULT_DNS));
+ #endif
+ 
+-#if QT_VERSION >= 0x060400
++#if defined(MVPN_ANDROID) || defined(MVPN_WASM)
++#if QT_VERSION >= 0x060500
+ #  error Check if QT added support for QDnsLookup::lookup() on Android
+ #endif
+ 
+-#if defined(MVPN_ANDROID) || defined(MVPN_WASM)
+     NetworkRequest* request =
+         NetworkRequest::createForGetUrl(this, m_fileUrl.toString());
+     connectNetworkRequest(request);
