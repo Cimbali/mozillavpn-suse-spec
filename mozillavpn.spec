@@ -1,8 +1,7 @@
 %define _srcdir .
-Version: 2.11.0
+Version: 2.12.0
 Release: 1
-Source0: mozillavpn_2.11.0.orig.tar.gz
-Patch0: remove-android-build-error.patch
+Source0: mozillavpn_2.12.0.orig.tar.gz
 
 Name:      mozillavpn
 Summary:   Mozilla VPN
@@ -23,6 +22,7 @@ BuildRequires: polkit-devel
 BuildRequires: python3-PyYAML
 BuildRequires: python3-lxml
 BuildRequires: cargo
+BuildRequires: libopenssl-devel
 BuildRequires: qt6-base-devel >= 6.0
 BuildRequires: qt6-base-common-devel >= 6.0
 BuildRequires: qt6-networkauth-devel >= 6.0
@@ -46,7 +46,7 @@ The Mozilla VPN team does not currently provide official support for Linux distr
 %undefine _lto_cflags
 
 %build
-%cmake -DWEBEXT_INSTALL_LIBDIR:PATH=%{_libdir} -DCMAKE_INSTALL_SYSCONFDIR:PATH=%{_sysconfdir} -DCMAKE_INSTALL_DATADIR:PATH=%{_datadir}
+%cmake -DWEBEXT_INSTALL_LIBDIR:PATH=%{_libdir} -DCMAKE_INSTALL_SYSCONFDIR:PATH=%{_sysconfdir} -DCMAKE_INSTALL_DATADIR:PATH=%{_datadir} -DBUILD_TESTING=OFF
 %cmake_build
 
 %install
