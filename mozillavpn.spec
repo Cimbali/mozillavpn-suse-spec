@@ -1,7 +1,7 @@
 %define _srcdir .
-Version: 2.12.0
+Version: 2.13.0
 Release: 1
-Source0: mozillavpn_2.12.0.orig.tar.gz
+Source0: mozillavpn_2.13.0.orig.tar.gz
 
 Name:      mozillavpn
 Summary:   Mozilla VPN
@@ -16,13 +16,14 @@ Requires:  libQt6Core5Compat6 >= 6.0
 Requires:  qt6-qt5compat-imports >= 6.0
 Requires:  wireguard-tools
 
+BuildRequires: cargo
 BuildRequires: golang >= 1.13
+BuildRequires: libsecret-devel
+BuildRequires: libopenssl-devel
 BuildRequires: python3 >= 3.6
 BuildRequires: polkit-devel
 BuildRequires: python3-PyYAML
 BuildRequires: python3-lxml
-BuildRequires: cargo
-BuildRequires: libopenssl-devel
 BuildRequires: qt6-base-devel >= 6.0
 BuildRequires: qt6-base-common-devel >= 6.0
 BuildRequires: qt6-networkauth-devel >= 6.0
@@ -46,7 +47,7 @@ The Mozilla VPN team does not currently provide official support for Linux distr
 %undefine _lto_cflags
 
 %build
-%cmake -DWEBEXT_INSTALL_LIBDIR:PATH=%{_libdir} -DCMAKE_INSTALL_SYSCONFDIR:PATH=%{_sysconfdir} -DCMAKE_INSTALL_DATADIR:PATH=%{_datadir} -DBUILD_TESTING=OFF
+%cmake -DWEBEXT_INSTALL_LIBDIR:PATH=%{_libdir} -DCMAKE_INSTALL_SYSCONFDIR:PATH=%{_sysconfdir} -DCMAKE_INSTALL_DATADIR:PATH=%{_datadir} -DBUILD_TESTING=OFF -DSKIP_GLEAN_PARSER=true
 %cmake_build
 
 %install
