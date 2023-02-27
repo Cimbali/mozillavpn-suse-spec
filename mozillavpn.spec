@@ -1,7 +1,7 @@
 %define _srcdir .
-Version: 2.13.0
+Version: 2.13.1
 Release: 1
-Source0: mozillavpn_2.13.0.orig.tar.gz
+Source0: mozillavpn_2.13.1.orig.tar.gz
 
 Name:      mozillavpn
 Summary:   Mozilla VPN

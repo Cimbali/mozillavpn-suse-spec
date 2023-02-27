@@ -1,4 +1,18 @@
 -------------------------------------------------------------------
+Mon Feb 27 16:12:00 GMT 2023 - Cimbali <me@cimba.li>
+
+- Update to version 2.13.1
+  * When running a speed test, you'll now be able to see upload as
+    well as download speed.
+  * You can now see the IP address of the server you are connected
+    to by tapping the info button.
+  * On Android, you can now turn the VPN on or off using the quick
+    actions in the notification bar.
+  * New multi-hop and app exclusion tutorials.
+  * We've also made bug fixes, UI adjustments and other
+    performance improvements to make Mozilla VPN even better.
+
+-------------------------------------------------------------------
 Fri Feb 24 10:22:00 GMT 2023 - Cimbali <me@cimba.li>
 
 - Update to version 2.13.0
