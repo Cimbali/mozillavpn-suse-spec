@@ -1,4 +1,20 @@
 -------------------------------------------------------------------
+Tue Mar 28 15:53:38 GMT 2023 - Cimbali <me@cimba.li>
+
+- Update to version 2.14.0
+  * You can now choose to filter out malware, ads, and ad
+    trackers, giving you more protection as you navigate the web.
+    Find these features in "Privacy features" within the Settings
+    menu.
+  * When you first launch the app, the app will now automatically
+    suggest the server location that is closest to you.
+  * We've reorganized the options in the Settings menu to help you
+    find important features of the app, like Privacy features, as
+    well as App exclusions functionality.
+  * We've also made bug fixes, UI adjustments and other
+    performance improvements to make Mozilla VPN even better.
+
+-------------------------------------------------------------------
 Mon Feb 27 16:12:00 GMT 2023 - Cimbali <me@cimba.li>
 
 - Update to version 2.13.1
