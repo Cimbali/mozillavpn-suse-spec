@@ -2,6 +2,7 @@
 Version: 2.14.0
 Release: 1
 Source0: mozillavpn_2.14.0.orig.tar.gz
+Patch0: fix-desktop-file.patch
 %{!?_version: %define _version %(cat %{_srcdir}/version.pri | grep :VERSION | awk '{print $NF}')}
 
 Name:      mozillavpn
@@ -57,14 +58,26 @@ The Mozilla VPN team does not currently provide official support for Linux distr
 %install
 %cmake_install
 
+%pre
+%service_add_pre mozillavpn.service
+
+%post
+%service_add_post mozillavpn.service
+
+%preun
+%service_del_preun mozillavpn.service
+
+%postun
+%service_del_postun mozillavpn.service
+
 %files
 %license LICENSE.md
-%{_sysconfdir}/chromium/native-messaging-hosts/mozillavpn.json
-%{_sysconfdir}/opt/chrome/native-messaging-hosts/mozillavpn.json
-%{_sysconfdir}/xdg/autostart/mozillavpn-startup.desktop
+%config %{_sysconfdir}/chromium/native-messaging-hosts/mozillavpn.json
+%config %{_sysconfdir}/opt/chrome/native-messaging-hosts/mozillavpn.json
+%config %{_sysconfdir}/xdg/autostart/mozillavpn-startup.desktop
 %{_unitdir}/mozillavpn.service
 %{_bindir}/mozillavpn
-%{_libdir}/mozillavpn/mozillavpnnp
+%{_libdir}/mozillavpn
 %{_libdir}/mozilla/native-messaging-hosts/mozillavpn.json
 %{_datadir}/applications/mozillavpn.desktop
 %{_datadir}/dbus-1/system-services/org.mozilla.vpn.dbus.service
@@ -75,3 +88,20 @@ The Mozilla VPN team does not currently provide official support for Linux distr
 %{_datadir}/icons/hicolor/48x48/apps/mozillavpn.png
 %{_datadir}/icons/hicolor/64x64/apps/mozillavpn.png
 %{_datadir}/polkit-1/actions/org.mozilla.vpn.policy
+%dir %{_sysconfdir}/chromium
+%dir %{_sysconfdir}/chromium/native-messaging-hosts
+%dir %{_sysconfdir}/opt/chrome
+%dir %{_sysconfdir}/opt/chrome/native-messaging-hosts
+%dir %{_libdir}/mozilla
+%dir %{_libdir}/mozilla/native-messaging-hosts
+%dir %{_datadir}/icons/hicolor
+%dir %{_datadir}/icons/hicolor/128x128
+%dir %{_datadir}/icons/hicolor/128x128/apps
+%dir %{_datadir}/icons/hicolor/16x16
+%dir %{_datadir}/icons/hicolor/16x16/apps
+%dir %{_datadir}/icons/hicolor/32x32
+%dir %{_datadir}/icons/hicolor/32x32/apps
+%dir %{_datadir}/icons/hicolor/48x48
+%dir %{_datadir}/icons/hicolor/48x48/apps
+%dir %{_datadir}/icons/hicolor/64x64
+%dir %{_datadir}/icons/hicolor/64x64/apps

@@ -1,4 +1,10 @@
 -------------------------------------------------------------------
+Wed 29 Mar 13:38:43 BST 2023 - Cimbali <me@cimba.li>
+
+- Add patch correcting the Version tag of desktop files
+- Make spec file more compliant
+
+-------------------------------------------------------------------
 Tue Mar 28 15:53:38 GMT 2023 - Cimbali <me@cimba.li>
 
 - Update to version 2.14.0
