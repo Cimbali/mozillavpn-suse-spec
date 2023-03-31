@@ -11,6 +11,9 @@ curl=(curl -s -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version:
 # You may skip tokens, or use one from env, etc.
 curl+=(-H "Authorization: Bearer `kwallet-query -r cimbali@github kdewallet`")
 
+# Bail if anything goes wrong
+set -e
+
 # Fetch/get tag
 if (( $# )); then
 	tag=$1
@@ -60,9 +63,6 @@ unzip -o "$build/$pack" "$spec"
 
 ls -l "$build/$orig" "$spec"
 
-# Bail if anything goes wrong
-set -e
-
 # Manual steps
 # import spec file updates
 vim "$spec" +Gdiff
@@ -85,6 +85,7 @@ osc vc
 spec-cleaner "$spec" > "$build/$spec"
 
 absbuild="`readlink -f "$build"`"
+cp `git ls-files \*.patch` "$absbuild/"
 rpmbuild -D "_topdir $absbuild" -D "_sourcedir $absbuild" -D "_srcrpmdir $absbuild" -bs "$build/$spec"
 
 git commit -em "Version $tag" "$spec" "$changes"
