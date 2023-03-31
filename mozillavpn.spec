@@ -1,7 +1,7 @@
 %define _srcdir .
-Version: 2.14.0
+Version: 2.14.1
 Release: 1
-Source0: mozillavpn_2.14.0.orig.tar.gz
+Source0: mozillavpn_2.14.1.orig.tar.gz
 Patch0: fix-desktop-file.patch
 %{!?_version: %define _version %(cat %{_srcdir}/version.pri | grep :VERSION | awk '{print $NF}')}
 

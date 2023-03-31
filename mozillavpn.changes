@@ -1,4 +1,10 @@
 -------------------------------------------------------------------
+Fri Mar 31 13:38:02 UTC 2023 - Cimbali <me@cimba.li>
+
+- Update to version v2.14.1
+  * Build adjustments
+
+-------------------------------------------------------------------
 Wed 29 Mar 13:38:43 BST 2023 - Cimbali <me@cimba.li>
 
 - Add patch correcting the Version tag of desktop files
