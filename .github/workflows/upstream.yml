@@ -1,0 +1,97 @@
+name: Upstream to OpenBuildService
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: opensuse/tumbleweed
+
+    steps:
+      - name: Install most basic dependencies
+        run: |
+          zypper install -y jq unzip git rpm-build rpmlint osc spec-cleaner
+
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        with:
+          path: git
+
+      - name: Download files
+        run: git/update.sh
+        env:
+          DESTDIR: dl
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update files in OpenBuildService repo
+        run: |
+          trap 'rm -f ./osc-config' EXIT && echo "$OPENBUILDSERVICE_TOKEN_SECRET" > ./osc-config
+          osc --config ./osc-config co -o osc home:cimbali mozillavpn
+
+          awk -F : '$1 ~ /(Source|Patch)[0-9]/ { sub(/: +/, ":") ; print $2 }' osc/mozillavpn.spec > old
+          awk -F : '$1 ~ /(Source|Patch)[0-9]/ { sub(/: +/, ":") ; print $2 }' git/mozillavpn.spec > new
+
+          grep -Fvxf old new | while read f; do
+            if [ -f "git/$f" ]; then cp "git/$f" "osc/$f"; else cp "dl/$f" "osc/$f"; fi
+            osc --config ./osc-config add "osc/$f"
+          done
+          grep -Fvxf new old | while read f; do osc --config ./osc-config rm "osc/$f"; done
+
+          spec-cleaner git/mozillavpn.spec > osc/mozillavpn.spec
+        env:
+          OPENBUILDSERVICE_TOKEN_SECRET: ${{ secrets.OPENBUILDSERVICE_TOKEN_SECRET }}
+
+      - name: Lint specfile
+        run: rpmlint osc/mozillavpn.spec
+        continue-on-error: true
+
+      - name: Build source RPM
+        id: srpm
+        run: |
+          rpmbuild -D "_topdir $PWD/rpmbuild" -D "_sourcedir $PWD/osc" -D "_srcrpmdir $PWD" -bs "osc/mozillavpn.spec"
+
+          filename=`rpm -q --qf "%{name}-%{version}-%{release}.src.rpm" --specfile osc/mozillavpn.spec`
+          echo "filename=$filename" | tee -a $GITHUB_OUTPUT
+
+      - name: Lint source RPM
+        run: rpmlint "${{ steps.srpm.outputs.filename }}"
+        continue-on-error: true
+
+      - name: Build binary RPM
+        id: rpm
+        run: |
+          zypper install -y `rpm -qR "${{ steps.srpm.outputs.filename }}"`
+          rpmbuild -D "_topdir $PWD/rpmbuild" -D "_rpmdir $PWD" -rb "${{ steps.srpm.outputs.filename }}"
+
+          filename=`rpm -q --qf "%{arch}/%{name}-%{version}-%{release}.%{arch}.rpm" --specfile osc/mozillavpn.spec`
+          echo "filename=$filename" | tee -a $GITHUB_OUTPUT
+
+      - name: Lint binary RPM
+        run: rpmlint "${{ steps.rpm.outputs.filename }}"
+        continue-on-error: true
+
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          path: |
+            ${{ steps.srpm.outputs.filename }}
+            ${{ steps.rpm.outputs.filename }}
+
+      - name: Install binary RPM
+        run: |
+          zypper install -y --allow-unsigned-rpm "${{ steps.rpm.outputs.filename }}"
+
+      - name: Try running binary
+        run: |
+          mozillavpn status
+
+      - name: Push to OpenBuildService
+        run: |
+          trap 'rm -f ./osc-config' EXIT && echo "$OPENBUILDSERVICE_TOKEN_SECRET" > ./osc-config
+          if [ `osc --config ./osc-config status osc/ | wc -l` -gt 0 ]; then
+            osc --config ./osc-config ci -m "`git -C git log -1 --pretty=%s`" osc/
+          fi
+        env:
+          OPENBUILDSERVICE_TOKEN_SECRET: ${{ secrets.OPENBUILDSERVICE_TOKEN_SECRET }}

@@ -4,15 +4,21 @@
 repo=mozilla-mobile/mozilla-vpn-client
 workflow=Sources
 releases=releases.json
-build=build
+build=${DESTDIR:-build}
 
 # Curl common args to access the GH API as an array
 curl=(curl -s -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28")
 # You may skip tokens, or use one from env, etc.
-curl+=(-H "Authorization: Bearer `kwallet-query -r cimbali@github kdewallet`")
+if [ -n "$GITHUB_TOKEN" ]; then
+	curl+=(-H "Authorization: Bearer $GITHUB_TOKEN")
+else
+	curl+=(-H "Authorization: Bearer `kwallet-query -r cimbali@github kdewallet`")
+fi
 
 # Bail if anything goes wrong
 set -e
+
+mkdir -p "$build/"
 
 # Fetch/get tag
 if (( $# )); then
@@ -38,8 +44,6 @@ pack=Sources_${tag#v}.zip
 spec=mozillavpn.spec
 changes=mozillavpn.changes
 
-mkdir -p "$build/"
-
 if [ ! -f "$build/$pack" ]; then
 	for (( page=1 ; page < 10 ; ++page )); do
 		rel=`"${curl[@]}" "https://api.github.com/repos/$repo/actions/artifacts?name=$workflow&per_page=100&page=$page" |
@@ -59,8 +63,14 @@ if [ ! -f "$build/$orig" ]; then
 	unzip -o "$build/$pack" "$orig" && mv "$orig" "$build/"
 fi
 
-unzip -o "$build/$pack" "$spec"
+# If running CI, just exit after downloading files
+if [ -n "$CI" ]; then
+	ls -l "$build/$orig"
+	exit 0
+fi
 
+# Extract spec file
+unzip -o "$build/$pack" "$spec"
 ls -l "$build/$orig" "$spec"
 
 # Manual steps
