@@ -40,6 +40,7 @@ jobs:
           grep -Fvxf new old | while read f; do osc --config ./osc-config rm "osc/$f"; done
 
           spec-cleaner git/mozillavpn.spec > osc/mozillavpn.spec
+          cp git/mozillavpn.changes osc/mozillavpn.changes
         env:
           OPENBUILDSERVICE_TOKEN_SECRET: ${{ secrets.OPENBUILDSERVICE_TOKEN_SECRET }}
 
