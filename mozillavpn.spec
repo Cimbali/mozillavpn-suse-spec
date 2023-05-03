@@ -46,6 +46,7 @@ A fast, secure and easy to use VPN. Built by the makers of Firefox.
 Read more on https://vpn.mozilla.org
 
 The Mozilla VPN team does not currently provide official support for Linux distributions other than Ubuntu.
+This package is also not currently validated by an OpenSUSE security review.
 
 %prep
 %autosetup -p1
