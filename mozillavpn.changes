@@ -1,4 +1,15 @@
 -------------------------------------------------------------------
+Tue Jun  6 15:54:13 UTC 2023 - Cimbali <me@cimba.li>
+
+- Update to version v2.15.0
+  * We will now recommend a few of the highest-performing server
+    locations when you're on the Select location screen.
+  * We've updated the App exclusions screen to make it easier to
+    choose which apps to leave out of VPN protection.
+  * We've also made bug fixes, UI adjustments and other
+    performance improvements to make Mozilla VPN even better.
+
+-------------------------------------------------------------------
 Fri Mar 31 13:38:02 UTC 2023 - Cimbali <me@cimba.li>
 
 - Update to version v2.14.1
