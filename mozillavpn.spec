@@ -1,9 +1,9 @@
 %define _srcdir .
-Version: 2.15.3
+Version: 2.16.1
 Release: 1
-Source0: mozillavpn_2.15.3.orig.tar.gz
+Source0: mozillavpn_2.16.1.orig.tar.gz
 Patch0: fix-desktop-file.patch
-%{!?_version: %define _version %(cat %{_srcdir}/version.pri | grep :VERSION | awk '{print $NF}')}
+%{!?_version: %define _version %(python %{_srcdir}/scripts/utils/getversion.py)}
 
 Name:      mozillavpn
 Summary:   Mozilla VPN
@@ -20,10 +20,10 @@ Requires:  wireguard-tools
 
 BuildRequires: cargo
 BuildRequires: golang >= 1.18
+BuildRequires: libcap-devel
 BuildRequires: libsecret-devel
 BuildRequires: libopenssl-devel
 BuildRequires: python3 >= 3.6
-BuildRequires: polkit-devel
 BuildRequires: python3-PyYAML
 BuildRequires: python3-lxml
 BuildRequires: qt6-base-devel >= 6.0
