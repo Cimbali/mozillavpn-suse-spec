@@ -2,7 +2,6 @@
 Version: 2.16.1
 Release: 1
 Source0: mozillavpn_2.16.1.orig.tar.gz
-Patch0: fix-desktop-file.patch
 %{!?_version: %define _version %(python %{_srcdir}/scripts/utils/getversion.py)}
 
 Name:      mozillavpn
