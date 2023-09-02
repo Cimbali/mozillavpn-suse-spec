@@ -87,7 +87,6 @@ This package is also not currently validated by an OpenSUSE security review.
 %{_datadir}/icons/hicolor/32x32/apps/mozillavpn.png
 %{_datadir}/icons/hicolor/48x48/apps/mozillavpn.png
 %{_datadir}/icons/hicolor/64x64/apps/mozillavpn.png
-%{_datadir}/polkit-1/actions/org.mozilla.vpn.policy
 %dir %{_sysconfdir}/chromium
 %dir %{_sysconfdir}/chromium/native-messaging-hosts
 %dir %{_sysconfdir}/opt/chrome
