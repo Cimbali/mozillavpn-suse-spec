@@ -95,7 +95,7 @@ osc vc
 spec-cleaner "$spec" > "$build/$spec"
 
 absbuild="`readlink -f "$build"`"
-cp `git ls-files \*.patch` "$absbuild/"
+git ls-files -z \*.patch | xargs -r0 cp -t "$absbuild/"
 rpmbuild -D "_topdir $absbuild" -D "_sourcedir $absbuild" -D "_srcrpmdir $absbuild" -bs "$build/$spec"
 
 git commit -em "Version $tag" "$spec" "$changes"
