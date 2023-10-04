@@ -1,4 +1,12 @@
 -------------------------------------------------------------------
+Wed Oct  4 08:04:55 UTC 2023 - Cimbali <me@cimba.li>
+
+- Update to version v2.17.0
+  * This update includes minor bug fixes, UI adjustments and other
+    performance improvements, including a new “My Devices” screen
+    that makes it easier to view and manage your devices.
+
+-------------------------------------------------------------------
 Thu Aug 31 14:28:17 UTC 2023 - Cimbali <me@cimba.li>
 
 - Update to version v2.16.1

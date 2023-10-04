@@ -1,7 +1,7 @@
 %define _srcdir .
-Version: 2.16.1
+Version: 2.17.0
 Release: 1
-Source0: mozillavpn_2.16.1.orig.tar.gz
+Source0: mozillavpn_2.17.0.orig.tar.gz
 %{!?_version: %define _version %(python %{_srcdir}/scripts/utils/getversion.py)}
 
 Name:      mozillavpn
@@ -27,6 +27,7 @@ BuildRequires: python3-PyYAML
 BuildRequires: python3-lxml
 BuildRequires: qt6-base-devel >= 6.0
 BuildRequires: qt6-base-common-devel >= 6.0
+BuildRequires: qt6-base-private-devel >= 6.0
 BuildRequires: qt6-networkauth-devel >= 6.0
 BuildRequires: qt6-declarative-devel >= 6.0
 BuildRequires: qt6-svg-devel >= 6.0
