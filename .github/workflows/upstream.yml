@@ -20,7 +20,9 @@ jobs:
           path: git
 
       - name: Download files
-        run: git/update.sh
+        run: |
+          version=`sed -n '/^Version:/{s/.*: *//p;q}' git/mozillavpn.spec`
+          git/update.sh "v$version"
         env:
           DESTDIR: dl
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
