@@ -1,7 +1,7 @@
 %define _srcdir .
-Version: 2.17.0
+Version: 2.18.0
 Release: 1
-Source0: mozillavpn_2.17.0.orig.tar.gz
+Source0: mozillavpn_2.18.0.orig.tar.gz
 %{!?_version: %define _version %(python %{_srcdir}/scripts/utils/getversion.py)}
 
 Name:      mozillavpn
