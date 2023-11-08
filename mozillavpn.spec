@@ -2,6 +2,7 @@
 Version: 2.18.0
 Release: 1
 Source0: mozillavpn_2.18.0.orig.tar.gz
+Patch0: fix-compilation-drop-pidtracker.patch
 %{!?_version: %define _version %(python %{_srcdir}/scripts/utils/getversion.py)}
 
 Name:      mozillavpn

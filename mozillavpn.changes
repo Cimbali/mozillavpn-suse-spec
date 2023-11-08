@@ -4,6 +4,8 @@ Thu Nov  2 22:11:54 UTC 2023 - Cimbali <me@cimba.li>
 - Update to version v2.18.0
   * This update includes minor bug fixes, UI adjustments and other
     performance improvements.
+- Include a patch removing dead code that causes compilation to fail
+  on kernels 6.5.6 and newer
 
 -------------------------------------------------------------------
 Wed Oct  4 08:04:55 UTC 2023 - Cimbali <me@cimba.li>
