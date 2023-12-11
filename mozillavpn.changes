@@ -1,4 +1,12 @@
 -------------------------------------------------------------------
+Mon Dec 11 17:13:44 UTC 2023 - Cimbali <me@cimba.li>
+
+- Update to version v2.19.0
+  * This update includes minor bug fixes, UI adjustments and other
+    performance improvements.
+- Remove the compilation fix patch, now merged in upstream.
+
+-------------------------------------------------------------------
 Fri Dec  1 12:53:09 UTC 2023 - Cimbali <me@cimba.li>
 
 - Update to version v2.18.1

@@ -1,8 +1,7 @@
 %define _srcdir .
-Version: 2.18.1
+Version: 2.19.0
 Release: 1
-Source0: mozillavpn_2.18.1.orig.tar.gz
-Patch0: fix-compilation-drop-pidtracker.patch
+Source0: mozillavpn_2.19.0.orig.tar.gz
 %{!?_version: %define _version %(python %{_srcdir}/scripts/utils/getversion.py)}
 
 Name:      mozillavpn
