@@ -1,8 +1,8 @@
 %define _srcdir .
-Version: 2.19.0
+Version: 2.20.0
 Release: 1
-Source0: mozillavpn_2.19.0.orig.tar.gz
-%{!?_version: %define _version %(python %{_srcdir}/scripts/utils/getversion.py)}
+Source0: mozillavpn_2.20.0.orig.tar.gz
+%{!?_version: %define _version %(cat %{_srcdir}/version.txt)}
 
 Name:      mozillavpn
 Summary:   Mozilla VPN
