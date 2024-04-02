@@ -1,7 +1,7 @@
 %define _srcdir .
-Version: 2.20.0
+Version: 2.21.0
 Release: 1
-Source0: mozillavpn_2.20.0.orig.tar.gz
+Source0: mozillavpn_2.21.0.orig.tar.gz
 %{!?_version: %define _version %(cat %{_srcdir}/version.txt)}
 
 Name:      mozillavpn
@@ -75,19 +75,19 @@ This package is also not currently validated by an OpenSUSE security review.
 %license LICENSE.md
 %config %{_sysconfdir}/chromium/native-messaging-hosts/mozillavpn.json
 %config %{_sysconfdir}/opt/chrome/native-messaging-hosts/mozillavpn.json
-%config %{_sysconfdir}/xdg/autostart/mozillavpn-startup.desktop
+%config %{_sysconfdir}/xdg/autostart/org.mozilla.vpn-startup.desktop
 %{_unitdir}/mozillavpn.service
 %{_bindir}/mozillavpn
 %{_libdir}/mozillavpn
 %{_libdir}/mozilla/native-messaging-hosts/mozillavpn.json
-%{_datadir}/applications/mozillavpn.desktop
+%{_datadir}/applications/org.mozilla.vpn.desktop
 %{_datadir}/dbus-1/system-services/org.mozilla.vpn.dbus.service
 %{_datadir}/dbus-1/system.d/org.mozilla.vpn.conf
-%{_datadir}/icons/hicolor/128x128/apps/mozillavpn.png
-%{_datadir}/icons/hicolor/16x16/apps/mozillavpn.png
-%{_datadir}/icons/hicolor/32x32/apps/mozillavpn.png
-%{_datadir}/icons/hicolor/48x48/apps/mozillavpn.png
-%{_datadir}/icons/hicolor/64x64/apps/mozillavpn.png
+%{_datadir}/icons/hicolor/128x128/apps/org.mozilla.vpn.png
+%{_datadir}/icons/hicolor/16x16/apps/org.mozilla.vpn.png
+%{_datadir}/icons/hicolor/32x32/apps/org.mozilla.vpn.png
+%{_datadir}/icons/hicolor/48x48/apps/org.mozilla.vpn.png
+%{_datadir}/icons/hicolor/64x64/apps/org.mozilla.vpn.png
 %dir %{_sysconfdir}/chromium
 %dir %{_sysconfdir}/chromium/native-messaging-hosts
 %dir %{_sysconfdir}/opt/chrome
