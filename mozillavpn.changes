@@ -1,4 +1,15 @@
 -------------------------------------------------------------------
+Tue May 14 15:21:30 UTC 2024 - Cimbali <me@cimba.li>
+
+- Update to version v2.22.0
+  * This update includes minor bug fixes, UI adjustments and other
+    performance improvements.
+  * It also introduces a new option to reset Mozilla VPN to its
+    default settings. This can be helpful if you're experiencing
+    instability or crashes with the application, and other
+    troubleshooting steps haven't resolved the issue.
+
+-------------------------------------------------------------------
 Tue Apr  2 21:41:07 UTC 2024 - Cimbali <me@cimba.li>
 
 - Update to version v2.21.0
