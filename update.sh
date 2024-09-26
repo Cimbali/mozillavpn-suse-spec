@@ -74,7 +74,7 @@ if [ ! -f "$build/$orig" ]; then
 		actual_base="${actual_orig%.orig.tar.gz}"
 		tar xf "$actual_orig" --transform "s@^${actual_base/_/-}@${base/_/-}@"
 		tar czf "$build/$orig" "${base/_/-}/"
-		rm -r "${base/_/-}/"
+		rm -r "$actual_orig" "${base/_/-}/"
 	else
 		mv "$actual_orig" "$build/$orig"
 	fi
