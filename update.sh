@@ -47,20 +47,39 @@ changes=mozillavpn.changes
 if [ ! -f "$build/$pack" ]; then
 	for (( page=1 ; page < 10 ; ++page )); do
 		rel=`"${curl[@]}" "https://api.github.com/repos/$repo/actions/artifacts?name=$workflow&per_page=100&page=$page" |
-			jq -r ".artifacts[] | select(.workflow_run.head_branch == \"$tag\")"`
+			jq -r ".artifacts[] | select(.workflow_run.head_branch == \"releases/${tag#v}\")"`
 		[ -n "$rel" ] && break
 	done
 
-	url=`echo "$rel" | jq -r '.archive_download_url'`
+	if [ -z "$rel" ]; then
+		echo "Could not find action artifact!"
+		exit 1
+	fi
+
+	url=`echo "$rel" | jq -sr '.[0].archive_download_url'`
 	# Get Location: header, watch out for CRLF end lines
 	dl=`"${curl[@]}" -D - "$url" | awk -F '[ \n\r\t]' 'tolower($1) == "location:" { print $2 }'`
 
 	# non-silent curl
 	curl "$dl" -o "$build/$pack"
+else
+	echo Source bundle already downloaded
 fi
 
 if [ ! -f "$build/$orig" ]; then
-	unzip -o "$build/$pack" "$orig" && mv "$orig" "$build/"
+	base="${orig%.orig.tar.gz}"
+	actual_orig=$(unzip -l "$build/$pack" | grep -oE "${base}(~rc[0-9]+)?\.orig\.tar\.gz")
+	unzip -o "$build/$pack" "$actual_orig"
+	if [ "$actual_orig" != "$orig" ]; then
+		actual_base="${actual_orig%.orig.tar.gz}"
+		tar xf "$actual_orig" --transform "s@^${actual_base/_/-}@${base/_/-}@"
+		tar czf "$build/$orig" "${base/_/-}/"
+		rm -r "${base/_/-}/"
+	else
+		mv "$actual_orig" "$build/$orig"
+	fi
+else
+	echo Source code already extracted
 fi
 
 # If running CI, just exit after downloading files
