@@ -1,8 +1,10 @@
 -------------------------------------------------------------------
-Tue Nov  5 01:00:51 UTC 2024 - Cimbali <me@cimba.li>
+Tue Nov 11 01:00:51 UTC 2024 - Cimbali <me@cimba.li>
 
 - Update to version v2.24.3
   * Translation updates.
+- Import upstream patch by Anders Kaseorg <andersk@mit.edu>
+  to fix build against more recent Qt
 
 -------------------------------------------------------------------
 Thu Sep 26 13:09:56 UTC 2024 - Cimbali <me@cimba.li>
