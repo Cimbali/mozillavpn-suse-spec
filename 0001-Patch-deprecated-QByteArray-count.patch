@@ -1,0 +1,25 @@
+From 989f2ea60fb0f8fccdcb45c857cf3cd82e23e8d9 Mon Sep 17 00:00:00 2001
+From: Cimbali <me@cimba.li>
+Date: Thu, 7 Nov 2024 16:36:16 +0000
+Subject: [PATCH] Patch deprecated QByteArray::count()
+
+---
+ src/platforms/linux/daemon/dbustypeslinux.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/platforms/linux/daemon/dbustypeslinux.h b/src/platforms/linux/daemon/dbustypeslinux.h
+index 1a5e44e26..54ad47fc2 100644
+--- a/src/platforms/linux/daemon/dbustypeslinux.h
++++ b/src/platforms/linux/daemon/dbustypeslinux.h
+@@ -46,7 +46,7 @@ class DnsResolver : public QHostAddress {
+     args.endStructure();
+     if (family == AF_INET6) {
+       ip.setAddress(data.constData());
+-    } else if (data.count() >= 4) {
++    } else if (data.size() >= 4) {
+       quint32 addrv4 = 0;
+       addrv4 |= (data[0] << 24);
+       addrv4 |= (data[1] << 16);
+-- 
+2.47.0
+

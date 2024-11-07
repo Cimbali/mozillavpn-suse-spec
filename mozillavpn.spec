@@ -1,7 +1,8 @@
 %define _srcdir .
 Version: 2.24.3
-Release: 1
+Release: 2
 Source0: mozillavpn_2.24.3.orig.tar.gz
+Patch1: 0001-Patch-deprecated-QByteArray-count.patch
 %{!?_version: %define _version %(cat %{_srcdir}/version.txt)}
 
 Name:      mozillavpn
