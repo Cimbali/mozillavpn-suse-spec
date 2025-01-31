@@ -1,8 +1,7 @@
 %define _srcdir .
-Version: 2.24.3
-Release: 5
-Source0: mozillavpn_2.24.3.orig.tar.gz
-Patch1: 0001-Fix-build-errors-from-deprecated-QByteArray-count-QV.patch
+Version: 2.25.0
+Release: 1
+Source0: mozillavpn_2.25.0.orig.tar.gz
 %{!?_version: %define _version %(cat %{_srcdir}/version.txt)}
 
 Name:      mozillavpn
@@ -18,7 +17,7 @@ Requires:  libQt6Core5Compat6 >= 6.0
 Requires:  qt6-qt5compat-imports >= 6.0
 Requires:  wireguard-tools
 
-BuildRequires: cargo
+BuildRequires: cargo >= 1.75
 BuildRequires: golang >= 1.18
 BuildRequires: libcap-devel
 BuildRequires: libsecret-devel
@@ -61,16 +60,16 @@ This package is also not currently validated by an OpenSUSE security review.
 %cmake_install
 
 %pre
-%service_add_pre mozillavpn.service
+%service_add_pre mozillavpn.service socksproxy.service
 
 %post
-%service_add_post mozillavpn.service
+%service_add_post mozillavpn.service socksproxy.service
 
 %preun
-%service_del_preun mozillavpn.service
+%service_del_preun mozillavpn.service socksproxy.service
 
 %postun
-%service_del_postun mozillavpn.service
+%service_del_postun mozillavpn.service socksproxy.service
 
 %files
 %license LICENSE.md
@@ -78,7 +77,9 @@ This package is also not currently validated by an OpenSUSE security review.
 %config %{_sysconfdir}/opt/chrome/native-messaging-hosts/mozillavpn.json
 %config %{_sysconfdir}/xdg/autostart/org.mozilla.vpn-startup.desktop
 %{_unitdir}/mozillavpn.service
+%{_unitdir}/socksproxy.service
 %{_bindir}/mozillavpn
+%{_bindir}/socksproxy
 %{_libdir}/mozillavpn
 %{_libdir}/mozilla/native-messaging-hosts/mozillavpn.json
 %{_datadir}/applications/org.mozilla.vpn.desktop
