@@ -1,4 +1,18 @@
 -------------------------------------------------------------------
+Wed Apr 16 14:06:54 UTC 2025 - Cimbali <me@cimba.li>
+
+- Update to version v2.27.0
+  * This update includes minor bug fixes, UI adjustments and other
+    performance improvements.
+
+-------------------------------------------------------------------
+Fri Jan 31 16:10:15 UTC 2025 - Cimbali <me@cimba.li>
+
+- Drop Qt build fix patch, merged in source
+- Update to version v2.25.0 This update includes minor bug fixes, UI
+    adjustments and other performance improvements.
+
+-------------------------------------------------------------------
 Tue Nov 11 01:00:51 UTC 2024 - Cimbali <me@cimba.li>
 
 - Update to version v2.24.3
