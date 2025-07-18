@@ -1,7 +1,7 @@
 %define _srcdir .
-Version: 2.28.0
+Version: 2.29.0
 Release: 1
-Source0: mozillavpn_2.28.0.orig.tar.gz
+Source0: mozillavpn_2.29.0.orig.tar.gz
 %{!?_version: %define _version %(cat %{_srcdir}/version.txt)}
 
 Name:      mozillavpn
