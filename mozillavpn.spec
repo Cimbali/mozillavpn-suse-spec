@@ -1,7 +1,7 @@
 %define _srcdir .
-Version: 2.29.0
+Version: 2.30.0
 Release: 1
-Source0: mozillavpn_2.29.0.orig.tar.gz
+Source0: mozillavpn_2.30.0.orig.tar.gz
 %{!?_version: %define _version %(cat %{_srcdir}/version.txt)}
 
 Name:      mozillavpn
@@ -89,6 +89,9 @@ This package is also not currently validated by an OpenSUSE security review.
 %{_datadir}/icons/hicolor/32x32/apps/org.mozilla.vpn.png
 %{_datadir}/icons/hicolor/48x48/apps/org.mozilla.vpn.png
 %{_datadir}/icons/hicolor/64x64/apps/org.mozilla.vpn.png
+%{_datadir}/icons/hicolor/scalable/apps/org.mozilla.vpn.svg
+%{_datadir}/metainfo/org.mozilla.vpn.metainfo.xml
+%{_datadir}/metainfo/org.mozilla.vpn.releases.xml
 %dir %{_sysconfdir}/chromium
 %dir %{_sysconfdir}/chromium/native-messaging-hosts
 %dir %{_sysconfdir}/opt/chrome
