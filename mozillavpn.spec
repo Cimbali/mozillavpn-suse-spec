@@ -28,6 +28,8 @@ BuildRequires: python3-lxml
 BuildRequires: qt6-base-devel >= 6.0
 BuildRequires: qt6-base-common-devel >= 6.0
 BuildRequires: qt6-base-private-devel >= 6.0
+BuildRequires: qt6-gui-private-devel >= 6.0
+BuildRequires: qt6-qml-private-devel >= 6.0
 BuildRequires: qt6-networkauth-devel >= 6.0
 BuildRequires: qt6-declarative-devel >= 6.0
 BuildRequires: qt6-svg-devel >= 6.0
