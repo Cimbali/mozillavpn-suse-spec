@@ -14,6 +14,8 @@ Requires:  libQt6NetworkAuth6 >= 6.0
 Requires:  libQt6QuickControls2-6 >= 6.0
 Requires:  libQt6Svg6 >= 6.0
 Requires:  libQt6Core5Compat6 >= 6.0
+Requires:  libQt6Qml6 >= 6.0
+Requires:  libQt6Gui6 >= 6.0
 Requires:  qt6-qt5compat-imports >= 6.0
 Requires:  wireguard-tools
 
