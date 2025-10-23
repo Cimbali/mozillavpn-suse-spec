@@ -15,6 +15,7 @@ Requires:  libQt6QuickControls2-6 >= 6.0
 Requires:  libQt6Svg6 >= 6.0
 Requires:  libQt6Core5Compat6 >= 6.0
 Requires:  libQt6Qml6 >= 6.0
+Requires:  libQt6QmlCore6 >= 6.0
 Requires:  libQt6Gui6 >= 6.0
 Requires:  qt6-qt5compat-imports >= 6.0
 Requires:  wireguard-tools
@@ -30,8 +31,10 @@ BuildRequires: python3-lxml
 BuildRequires: qt6-base-devel >= 6.0
 BuildRequires: qt6-base-common-devel >= 6.0
 BuildRequires: qt6-base-private-devel >= 6.0
+BuildRequires: qt6-core-private-devel >= 6.0
 BuildRequires: qt6-gui-private-devel >= 6.0
 BuildRequires: qt6-qml-private-devel >= 6.0
+BuildRequires: qt6-qmlcore-private-devel >= 6.0
 BuildRequires: qt6-networkauth-devel >= 6.0
 BuildRequires: qt6-declarative-devel >= 6.0
 BuildRequires: qt6-svg-devel >= 6.0
